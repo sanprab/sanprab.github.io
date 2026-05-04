@@ -6,86 +6,312 @@
     <title>Sanjiv Prabhunandan</title>
     <meta name="description" content="Sanjiv Prabhunandan is a Staff Software Engineer, building enterprise accounting and digital asset infrastructure.">
     <meta name="author" content="Sanjiv Prabhunandan">
-    
+
     <meta property="og:title" content="Sanjiv Prabhunandan">
     <meta property="og:description" content="Staff Software Engineer at CoinTracker">
     <meta property="og:type" content="website">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background: #FFF5EE;
-            color: #383838;
+            font-family: 'Inter Tight', sans-serif;
+            background: #ffffff;
+            color: #52525b;
             min-height: 100vh;
-            padding: 2rem;
-            line-height: 1.7;
-            font-size: 18px;
+            letter-spacing: -0.025em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+            flex-direction: column;
         }
 
         .container {
-            max-width: 680px;
+            position: relative;
             margin: 0 auto;
-            padding-top: 4rem;
+            width: 100%;
+            max-width: 640px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 16px 0;
         }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #383838;
+        header {
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        p {
-            margin-bottom: 1rem;
-            font-size: 1.125rem;
+        .site-name {
+            font-weight: 500;
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
         }
 
-        a {
-            color: #2A7AE2;
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            flex: 1;
+        }
+
+        section p {
+            color: #52525b;
+            font-size: 15px;
+        }
+
+        section p + p {
+            margin-top: 16px;
+        }
+
+        a.inline-link {
+            text-decoration: underline;
+            color: inherit;
+        }
+
+        a.inline-link:hover {
+            color: #18181b;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .pill-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            border-radius: 9999px;
+            background: #f4f4f5;
+            padding: 4px 10px;
+            font-size: 14px;
+            color: #000000;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .pill-link:hover {
+            background: #09090b;
+            color: #fafafa;
+        }
+
+        .pill-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        footer {
+            margin-top: 96px;
+            border-top: 1px solid #f4f4f5;
+            padding: 16px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: #71717a;
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            background: #f4f4f5;
+            padding: 3px;
+            gap: 2px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 1.5rem;
-            }
-            
-            .container {
-                padding-top: 2rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
+        .theme-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 9999px;
+            padding: 4px 6px;
+            font-size: 12px;
+            font-family: inherit;
+            letter-spacing: inherit;
+            color: #71717a;
+            transition: background-color 0.15s, color 0.15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .theme-btn.active {
+            background: #ffffff;
+            color: #09090b;
+        }
+
+        /* dark mode */
+        html.dark body {
+            background: #09090b;
+            color: #a1a1aa;
+        }
+
+        html.dark .site-name {
+            color: #ffffff;
+        }
+
+        html.dark footer {
+            border-top-color: #27272a;
+        }
+
+        html.dark .pill-link {
+            background: #27272a;
+            color: #f4f4f5;
+        }
+
+        html.dark .pill-link:hover {
+            background: #3f3f46;
+            color: #fafafa;
+        }
+
+        html.dark .theme-toggle {
+            background: #27272a;
+        }
+
+        html.dark .theme-btn.active {
+            background: #3f3f46;
+            color: #f4f4f5;
+        }
+
+        html.dark .theme-btn {
+            color: #52525b;
+        }
+
+        html.dark .theme-btn.active svg,
+        .theme-btn.active svg {
+            opacity: 1;
+        }
+
+        html.dark section p {
+            color: #a1a1aa;
         }
     </style>
+    <script>
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var preferred = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (preferred === 'dark') document.documentElement.classList.add('dark');
+        })();
+    </script>
 </head>
 <body>
-    <main class="container">
-        <h1>About</h1>
-        
-        <p>
-            I'm a Staff Software Engineer at <a href="https://www.cointracker.io/" target="_blank" rel="noopener">CoinTracker</a> based in San Francisco, California.
-        </p>
-        
-        <p>
-            Find me on <a href="https://www.linkedin.com/in/sanjiv01/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://github.com/sanprab" target="_blank" rel="noopener">GitHub</a>, or <a href="https://substack.com/@snjvpr" target="_blank" rel="noopener">Substack</a>.
-        </p>
-    </main>
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <a class="site-name" href="/">Sanjiv Prabhunandan</a>
+            </header>
+
+            <main>
+                <section>
+                    <p>
+                        I'm a Staff Software Engineer at <a href="https://www.cointracker.io/" target="_blank" rel="noopener" class="inline-link">CoinTracker</a>, based in San Francisco. I'm the founding engineer and tech lead for CoinTracker Enterprise, an accounting subledger and treasury platform for major fintechs. I led the asset and pricing infrastructure behind 3M+ users and $250B+ in tracked volume; CoinTracker is backed by $100M from Accel and powers crypto tax infrastructure for Coinbase, TurboTax, and H&R Block.
+                    </p>
+                    <p>
+                        Previously, I was the second engineer at Velo Labs building stablecoin payment rails for cross-border remittances, and before that on a 0→1 team at PayPal building petabyte-scale data orchestration for AI models.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sanjiv01/" target="_blank" rel="noopener" class="pill-link">
+                            LinkedIn
+                            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/sanprab" target="_blank" rel="noopener" class="pill-link">
+                            GitHub
+                            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href="https://substack.com/@snjvpr" target="_blank" rel="noopener" class="pill-link">
+                            Substack
+                            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <div class="footer-inner">
+                    <span class="footer-copy">© 2026 Sanjiv Prabhunandan</span>
+                    <div class="theme-toggle" role="group" aria-label="Theme">
+                        <button class="theme-btn" id="btn-light" onclick="setTheme('light')" aria-label="Light">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                        </button>
+                        <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')" aria-label="Dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        </button>
+                        <button class="theme-btn" id="btn-system" onclick="setTheme('system')" aria-label="System">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        function setTheme(theme) {
+            if (theme === 'system') {
+                localStorage.removeItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.classList.toggle('dark', prefersDark);
+            } else if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+            updateButtons(theme);
+        }
+
+        function updateButtons(theme) {
+            document.getElementById('btn-light').classList.toggle('active', theme === 'light');
+            document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
+            document.getElementById('btn-system').classList.toggle('active', theme === 'system');
+        }
+
+        var stored = localStorage.getItem('theme');
+        var current = stored || 'system';
+        updateButtons(current);
+    </script>
 </body>
 </html>
